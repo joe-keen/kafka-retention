@@ -19,8 +19,6 @@ fi
 
 size=`df -kh | grep $kafka_dir$ | awk '{print $5}' | awk -F% '{print $1}'`
 
-echo "<$size>"
-
 if [ "$size" -gt "50" ]; then
     echo "$kafka_dir > 75% usage.  Reducing kafka retention to 1 hour."
     decrease_retention metrics
